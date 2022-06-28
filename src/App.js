@@ -8,7 +8,6 @@ const App = () => {
   const [searchField, setSearchField] = useState('');
   const [employees, setEmployees] = useState([]);
 
-  const [title, setTitle] = useState('Workwize Employees');
   const [filteredEmployees, setFilteredEmployees] = useState([]);
 
   useEffect(() => {
@@ -27,26 +26,13 @@ const App = () => {
     setSearchField(search);
   }
 
-  const onTitleChange = (event) => {
-
-    const title = event.target.value.toLowerCase();
-
-    setTitle(title);
-  }
-
   return (
     <div className="App">
-      <h1 className='app-title'>{ title }</h1>
+      <h1 className='app-title'>List of Employees</h1>
       <SearchBox 
         onSearchChange={onSearchChange} 
         placeholder="search employees" 
         className="search-box-employees"
-      />
-      <br/>
-      <SearchBox 
-        onSearchChange={onTitleChange} 
-        placeholder="set title" 
-        className="title-box-employees"
       />
       <CardList employees={filteredEmployees}/>
     </div>
